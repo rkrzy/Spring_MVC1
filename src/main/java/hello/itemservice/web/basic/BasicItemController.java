@@ -5,12 +5,11 @@ import hello.itemservice.domain.Item;
 import hello.itemservice.domain.ItemRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -36,6 +35,16 @@ public class BasicItemController {
         model.addAttribute("item",item);
         return "basic/item";
     }
+
+    @GetMapping("/add")
+    public String addForm(){
+        return "basic/addForm";
+    }
+    @PostMapping("/add")
+    public String save(){
+        return "basic/addForm";
+    }
+
     @PostConstruct
     public void init()
     {
